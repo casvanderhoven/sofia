@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170318122525) do
+ActiveRecord::Schema.define(version: 20170318125348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authors", force: :cascade do |t|
+    t.string   "name"
+    t.string   "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "chapters", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "start_line"
+    t.integer  "end_line"
+    t.integer  "work_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["work_id"], name: "index_chapters_on_work_id", using: :btree
+  end
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -30,4 +47,27 @@ ActiveRecord::Schema.define(version: 20170318122525) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
   end
 
+  create_table "sections", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "start_line"
+    t.integer  "end_line"
+    t.text     "original"
+    t.text     "translation"
+    t.integer  "chapter_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["chapter_id"], name: "index_sections_on_chapter_id", using: :btree
+  end
+
+  create_table "works", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_works_on_author_id", using: :btree
+  end
+
+  add_foreign_key "chapters", "works"
+  add_foreign_key "sections", "chapters"
+  add_foreign_key "works", "authors"
 end

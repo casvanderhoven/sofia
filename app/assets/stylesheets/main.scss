@@ -110,6 +110,7 @@ div.chapter-navigation {
   float: left;
   width: 100%;
   margin-top: 15px;
+  margin-bottom: 60px;
   border-top: 10px solid $black;
   border-bottom: 10px solid $black;
   div.center {
@@ -131,3 +132,27 @@ div.chapter-navigation {
   }
 }
 
+div.section {
+  float: left;
+  div.title {
+    @include grid-column(12);
+    h1 {
+      font-size: 1em;
+    }
+    p {
+      font-size: 1.1em;
+    }
+    form.button_to {
+      display: inline-block;
+      font-size: 0.8em;
+      margin-bottom: 20px;
+    }
+  }
+  div.original {
+    @include grid-column(5);
+  }
+  div.translation {
+    @include grid-column(5);
+    @include grid-push(2);
+  }
+}

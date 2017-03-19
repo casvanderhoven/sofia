@@ -1,0 +1,11 @@
+<div class="wrapper">
+  <%= simple_form_for [@chapter.work.author, @chapter.work, @chapter, @section], html: {class: "new-form"} do |f| %>
+    <%= f.hidden_field :chapter_id, value: @chapter.id %>
+    <%= f.input :name %>
+    <%= f.input :original %>
+    <%= f.input :translation %>
+    <%= f.input :start_line %>
+    <%= f.input :end_line %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

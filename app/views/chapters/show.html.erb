@@ -1,22 +1,36 @@
 <div class="chapter-header">
   <h1><%= link_to @chapter.work.name, author_work_path(@chapter.work.author, @chapter.work) %></h1>
   <h2><%= @chapter.name %></h2>
+  <h2><%= link_to "Add section", new_author_work_chapter_section_path(@chapter.work.author, @chapter.work, @chapter) %></h2>
 </div>
 
 <div class="chapter-navigation">
   <div class="center">
-  <ul>
-    <li>01-56</li>
-    <li>57-83</li>
-    <li>84-98</li>
-    <li>99-123</li>
-    <li>124-145</li>
-    <li>146-186</li>
-    <li>187-198</li>
-    <li>199-212</li>
-    <li>213-242</li>
-    <li>243-265</li>
-    <li>266-284</li>
-  </ul>
+    <ul>
+      <% @chapter.sections.each do |section| %>
+        <li><%= link_to("#line-" + section.start_line.to_s) do %>
+          <%= section.start_line.to_s.rjust(2, '0') %>-<%= section.end_line.to_s.rjust(2, '0') %>
+        <% end %>
+        </li>
+      <% end %>
+    </ul>
   </div>
+</div>
+<div class="wrapper">
+  <% @chapter.sections.each do |section| %>
+    <div id="line-<%=section.start_line %>" class="section">
+      <div class="title">
+        <h1><%= section.start_line.to_s.rjust(2, '0')%>-<%=section.end_line.to_s.rjust(2, '0') %></h1>
+        <p><%= section.name.upcase %></p>
+        <%= button_to "edit section", edit_author_work_chapter_section_path(section.chapter.work.author, section.chapter.work, section.chapter, section), method: :get %>
+        <%= button_to "delete section", author_work_chapter_section_path(section.chapter.work.author, section.chapter.work, section.chapter, section), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+      <div class="original">
+        <p><%= section.original %></p>
+      </div>
+      <div class="translation">
+        <p><%= section.translation %></p>
+      </div>
+    </div>
+  <% end %>
 </div>

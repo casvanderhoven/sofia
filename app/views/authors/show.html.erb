@@ -16,8 +16,9 @@
     <div class="work">
       <h1><%= link_to work.name, author_work_path(@author, work)%></h1>
       <ul>
-        <li>Book 1: The Creation, The Ages of Mankind, The Flood, Deucalion and Pyrrha, Apollo and Daphne, Io, and Phaëton</li>
-        <li>Book 2: Phaëton (cont.), Callisto, The Raven and the Crow, Ocyrhoe, Mercury and Battus, The Envy of Aglauros, Jupiter and Europa</li>
+        <% work.chapters.each do |chapter| %>
+          <li><%= link_to chapter.name, author_work_chapter_path(@author, work, chapter) %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>

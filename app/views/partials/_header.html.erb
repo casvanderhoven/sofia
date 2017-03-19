@@ -4,12 +4,12 @@
     <li>
       <p>contact me: </p>
     </li>
-    <li><%= fa_icon("twitter") %></li>
-    <li><%= fa_icon("send") %></li>
+    <li><%= link_to fa_icon("twitter"), "https://www.twitter.com/casvanderhoven/" %></li>
+    <li><%= link_to fa_icon("send"), "mailto:casvanderhoven@gmail.com" %></li>
     <% if signed_in? %>
-      <%= link_to "sign out", sign_out_path, method: :delete %>
+      <%= button_to "sign out", sign_out_path, method: :delete %>
     <% else %>
-      <%= link_to "sign in", sign_in_path %>
+      <%= button_to "sign in", sign_in_path %>
     <% end %>
   </ul>
 </header>

@@ -2,9 +2,14 @@
   <h1><%= link_to "Σοφια", root_path %></h1>
   <ul>
     <li>
-    <p>contact me: </p>
+      <p>contact me: </p>
     </li>
     <li><%= fa_icon("twitter") %></li>
     <li><%= fa_icon("send") %></li>
+    <% if signed_in? %>
+      <%= link_to "sign out", sign_out_path, method: :delete %>
+    <% else %>
+      <%= link_to "sign in", sign_in_path %>
+    <% end %>
   </ul>
 </header>

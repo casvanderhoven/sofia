@@ -1,4 +1,5 @@
 class ChaptersController < ApplicationController
+  before_action :require_login, except: [:show]
 
   def show
     @chapter = Chapter.find(params[:id])

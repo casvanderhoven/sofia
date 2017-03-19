@@ -1,7 +1,9 @@
 <div class="chapter-header">
   <h1><%= link_to @chapter.work.name, author_work_path(@chapter.work.author, @chapter.work) %></h1>
   <h2><%= @chapter.name %></h2>
-  <h2><%= link_to "Add section", new_author_work_chapter_section_path(@chapter.work.author, @chapter.work, @chapter) %></h2>
+  <% if signed_in? %>
+  <h2><%= button_to "Add section", new_author_work_chapter_section_path(@chapter.work.author, @chapter.work, @chapter) %></h2>
+<% end %>
 </div>
 
 <div class="chapter-navigation">
@@ -22,8 +24,10 @@
       <div class="title">
         <h1><%= section.start_line.to_s.rjust(2, '0')%>-<%=section.end_line.to_s.rjust(2, '0') %></h1>
         <p><%= section.name.upcase %></p>
-        <%= button_to "edit section", edit_author_work_chapter_section_path(section.chapter.work.author, section.chapter.work, section.chapter, section), method: :get %>
-        <%= button_to "delete section", author_work_chapter_section_path(section.chapter.work.author, section.chapter.work, section.chapter, section), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% if signed_in? %>
+          <%= button_to "edit section", edit_author_work_chapter_section_path(section.chapter.work.author, section.chapter.work, section.chapter, section), method: :get %>
+          <%= button_to "delete section", author_work_chapter_section_path(section.chapter.work.author, section.chapter.work, section.chapter, section), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
       </div>
       <div class="original">
         <p><%= section.original %></p>

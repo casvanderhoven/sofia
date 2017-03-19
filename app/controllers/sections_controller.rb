@@ -1,4 +1,5 @@
 class SectionsController < ApplicationController
+  before_action :require_login
 
   def new
     @section = Section.new

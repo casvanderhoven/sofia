@@ -1,11 +1,13 @@
 <div class="banner">
   <div class="center">
     <h1><%= @work.name %></h1>
-    <ul>
-      <li><%= link_to "Edit work", edit_author_work_path %></li>
-      <li><%= link_to "Delete work", author_work_path, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-      <li><%= link_to "Add chapter", new_author_work_chapter_path(@work.author, @work) %></li>
-    </ul>
+    <% if signed_in? %>
+      <ul>
+        <li><%= link_to "Edit work", edit_author_work_path %></li>
+        <li><%= link_to "Delete work", author_work_path, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        <li><%= link_to "Add chapter", new_author_work_chapter_path(@work.author, @work) %></li>
+      </ul>
+    <% end %>
   </div>
 </div>
 

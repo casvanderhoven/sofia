@@ -19,12 +19,12 @@ class SectionsController < ApplicationController
 
   def edit
     @section = Section.find(params[:id])
-    @chapter = Chapter.find(params[:id])
+    @chapter = Chapter.find(params[:chapter_id])
   end
 
   def update
     @section = Section.find(params[:id])
-    @chapter = Chapter.find(params[:id])
+    @chapter = Chapter.find(params[:chapter_id])
 
     if @section.update(section_params)
       redirect_to author_work_chapter_path(@chapter.work.author, @chapter.work, @chapter)

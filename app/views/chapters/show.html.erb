@@ -30,10 +30,10 @@
         <% end %>
       </div>
       <div class="original">
-        <p><%= section.original %></p>
+        <p><%= simple_format(section.original) %></p>
       </div>
       <div class="translation">
-        <p><%= section.translation %></p>
+        <p><%= simple_format(section.translation) %></p>
       </div>
     </div>
   <% end %>

@@ -9,7 +9,7 @@
     <% if signed_in? %>
       <%= button_to "sign out", sign_out_path, method: :delete %>
     <% else %>
-      <%= button_to "sign in", sign_in_path %>
+      <%= button_to "sign in", sign_in_path, method: :get %>
     <% end %>
   </ul>
 </header>

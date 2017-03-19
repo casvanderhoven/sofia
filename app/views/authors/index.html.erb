@@ -7,11 +7,11 @@
 </div>
 
 <div class="wrapper">
+    <% if signed_in? %>
+      <%= button_to "Add author", new_author_path, method: :get %>
+    <% end %>
   <form class="author-search" role="search">
     <input type="search" placeholder="Search for..." />
-    <% if signed_in? %>
-      <%= button_to "Add author", new_author_path %>
-    <% end %>
   </form>
 
   <% @authors.each do |author| %>

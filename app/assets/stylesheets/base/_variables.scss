@@ -1,10 +1,26 @@
 // Breakpoints
+$mobile: 480px;
 $medium-screen: 600px;
-$large-screen: 900px;
+$large-screen: 960px;
 
 // Typography
-$base-font-family: $font-stack-system;
-$heading-font-family: $base-font-family;
+@font-face {
+  font-family: 'Lato-Heavy';
+  src:font-url('Lato-Heavy.eot');
+  src:font-url('Lato-Heavy.eot?#iefix') format('embedded-opentype'),
+  font-url('Lato-Heavy.ttf') format('truetype'), font-url('Lato-Heavy.woff')
+  format('woff');
+}
+@font-face {
+  font-family: 'Lato-Light';
+  src:font-url('Lato-Light.eot');
+  src:font-url('Lato-Light.eot?#iefix') format('embedded-opentype'),
+  font-url('Lato-Light.ttf') format('truetype'), font-url('Lato-Light.woff')
+  format('woff');
+}
+
+$base-font-family: 'Lato-Light', $font-stack-system;
+$heading-font-family: 'Lato-Heavy', $base-font-family;
 
 // Font Sizes
 $base-font-size: 1em;
@@ -20,17 +36,17 @@ $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
 
 // Colors
-$blue: #1565c0;
+$black: #000;
 $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #ddd;
 
 // Font Colors
 $base-font-color: $dark-gray;
-$action-color: $blue;
+$action-color: $black;
 
 // Border
-$base-border-color: $light-gray;
+$base-border-color: $black;
 $base-border: 1px solid $base-border-color;
 
 // Background Colors

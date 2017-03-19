@@ -5,7 +5,6 @@ ruby "2.4.0"
 gem "autoprefixer-rails"
 gem "delayed_job_active_record"
 gem "flutie"
-gem "honeybadger"
 gem "jquery-rails"
 gem "normalize-rails", "~> 3.0.0"
 gem "pg"
@@ -59,6 +58,7 @@ group :staging, :production do
 end
 
 gem 'high_voltage'
+gem 'font-awesome-rails'
 gem 'bourbon', '~> 5.0.0.beta.7'
 gem 'neat', '~> 2.0.0.beta.1'
 gem 'refills', group: [:development, :test]

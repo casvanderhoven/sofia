@@ -1,0 +1,24 @@
+<div class="banner">
+  <div class="center">
+    <h1>Study and learn from ancient texts</h1>
+    <p>Sofia is an interactive study guide for students of the classics</p>
+  </div>
+</div>
+
+<div class="wrapper">
+  <form class="author-search" role="search">
+    <input type="search" placeholder="Search for..." />
+    <%= link_to "Add author", new_author_path %>
+  </form>
+
+  <% @authors.each do |author| %>
+    <div class="author">
+      <h1><%= link_to author.name.upcase, author_path(author) %></h1>
+      <ul>
+        <% author.works[0,20].each do |work| %>
+          <li><%= link_to work.name, author_work_path(author, work) %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>

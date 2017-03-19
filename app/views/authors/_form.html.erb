@@ -1,0 +1,7 @@
+<div class="wrapper">
+  <%= simple_form_for @author, html: {class: "new-form"} do |f| %>
+    <%= f.input :name %>
+    <%= f.input :category, collection: ["Latin", "Greek"] %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

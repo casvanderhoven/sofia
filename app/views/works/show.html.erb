@@ -1,0 +1,20 @@
+<div class="banner">
+  <div class="center">
+    <h1><%= @work.name %></h1>
+    <ul>
+      <li><%= link_to "Edit work", edit_author_work_path %></li>
+      <li><%= link_to "Delete work", author_work_path, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      <li><%= link_to "Add chapter", new_author_work_chapter_path(@work.author, @work) %></li>
+    </ul>
+  </div>
+</div>
+
+<div class="wrapper">
+  <% @work.chapters.each do |chapter| %>
+    <div class="chapter">
+      <h1><%= link_to chapter.name, author_work_chapter_path(@work.author, @work, chapter) %></h1>
+      <h2>Lines <%= chapter.start_line %> - <%= chapter.end_line %></h2>
+    </div>
+  <% end %>
+</div>
+

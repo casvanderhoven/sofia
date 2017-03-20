@@ -2,8 +2,11 @@
   <h1><%= link_to @chapter.work.name, author_work_path(@chapter.work.author, @chapter.work) %></h1>
   <h2><%= @chapter.name %></h2>
   <% if signed_in? %>
-  <h2><%= button_to "Add section", new_author_work_chapter_section_path(@chapter.work.author, @chapter.work, @chapter), method: :get %></h2>
-<% end %>
+    <h2>
+      <%= button_to "Delete chapter", author_work_chapter_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= button_to "Add section", new_author_work_chapter_section_path(@chapter.work.author, @chapter.work, @chapter), method: :get %>
+    </h2>
+  <% end %>
 </div>
 
 <div class="chapter-navigation">

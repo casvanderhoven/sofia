@@ -38,6 +38,14 @@ class ChaptersController < ApplicationController
       render 'edit'
     end
   end
+  
+  def destroy
+    @work = Work.find(params[:work_id])
+    @chapter = Chapter.find(params[:id])
+    @chapter.destroy
+
+    redirect_to author_work_path(@work.author, @work)
+  end
 
   private
   def chapter_params

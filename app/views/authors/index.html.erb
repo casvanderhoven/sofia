@@ -11,7 +11,7 @@
     <%= button_to "Add author", new_author_path, method: :get %>
   <% end %>
   <%= simple_form_for :author, method: 'get', url: authors_path, html: {:class => 'author-search'} do |f| %>
-    <%= f.input :starts_with, placeholder: "Search for...", label: false, input_html: { autofocus: "true", name: 'starts_with' } %>
+    <%= f.input :starts_with, placeholder: "Search for author...", label: false, input_html: { autofocus: "true", name: 'starts_with' } %>
   <% end %>
 
   <% @authors.each do |author| %>

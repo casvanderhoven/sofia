@@ -25,7 +25,7 @@ $(document).ready(function() {
     var className = "." + classes[0] + "." + classes[1];
     $(className).css( {borderBottom: "none" } );
   });
-  $(".original").each.function() {
+  $(".original").each(function() {
     $(this).fitTextInDiv();
   });
 });

@@ -154,11 +154,9 @@ div.section {
       font-size: 1.1em;
     }
   }
-  div.original {
+  div.original, div.translation {
     @include grid-column(6);
-  }
-  div.translation {
-    @include grid-column(6);
+    line-height: 2;
   }
 }
 

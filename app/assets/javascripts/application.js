@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui/widgets/tooltip
 //= require cases
 
 //= require_tree .

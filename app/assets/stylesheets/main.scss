@@ -144,6 +144,7 @@ div.chapter-navigation {
 
 div.section {
   float: left;
+  width: 100%;
   div.title {
     @include grid-column(12);
     h1 {
@@ -154,11 +155,10 @@ div.section {
     }
   }
   div.original {
-    @include grid-column(5);
+    @include grid-column(6);
   }
   div.translation {
-    @include grid-column(5);
-    @include grid-push(2);
+    @include grid-column(6);
   }
 }
 
@@ -176,4 +176,62 @@ form.button_to {
   display: inline-block;
   font-size: 0.8em;
   margin-bottom: 20px;
+}
+
+// case styles
+$cases: (
+"nom": #fbcdba,
+"gen": #df9eaa,
+"dat": #a3e0a4,
+"acc": #e1cfa4,
+"abl": #ba6dce,
+"adv": #c4b94e,
+"verb": #c8615b,
+"voc": #5c5fc9,
+);
+
+@each $case, $color in $cases {
+  .#{$case} {
+    background-color: rgba($color, 0.8);
+  }
+}
+
+.no-background {
+  span {
+    background-color: transparent !important;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+
+.legend {
+  position:fixed;
+  right: 0;
+  width: 120px;
+  form.button_to {
+    margin-bottom: 0;
+    #switch {
+      width: 120px;
+    }
+  }
+  div.case-colors {
+    div {
+      padding: 8px;
+      text-align: center;
+    }
+  }
+  h1 {
+    padding: 0;
+    background-color: transparent;
+  }
+}
+
+.ui-tooltip {
+  height: 40px;
+  width: 100px;
+  text-align: center;
+  color: $black;
 }

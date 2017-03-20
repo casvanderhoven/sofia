@@ -63,3 +63,4 @@ gem 'bourbon', '~> 5.0.0.beta.7'
 gem 'neat', '~> 2.0.0.beta.1'
 gem 'refills', group: [:development, :test]
 gem 'clearance'
+gem 'jquery-ui-rails'

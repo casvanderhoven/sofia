@@ -1,6 +1,21 @@
 <div class="chapter-header">
   <h1><%= link_to @chapter.work.name, author_work_path(@chapter.work.author, @chapter.work) %></h1>
   <h2><%= @chapter.name %></h2>
+  <h2>
+    <div class="legend">
+      <%= button_to "Show structure", "#", method: :get, id: "switch" %>
+      <div class="case-colors hidden">
+        <div class="nom">Nominative</div>
+        <div class="gen">Genitive</div>
+        <div class="dat">Dative</div>
+        <div class="acc">Accusative</div>
+        <div class="abl">Ablative</div>
+        <div class="adv">Adverb</div>
+        <div class="verb">Verb</div>
+        <div class="voc">Vocative</div>
+      </div>
+    </div>
+  </h2>
   <% if signed_in? %>
     <h2>
       <%= button_to "Delete chapter", author_work_chapter_path, method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -32,11 +47,11 @@
           <%= button_to "delete section", author_work_chapter_section_path(section.chapter.work.author, section.chapter.work, section.chapter, section), method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
       </div>
-      <div class="original">
-        <p><%= simple_format(section.original) %></p>
+      <div class="original no-background" id="<%= section.start_line %>">
+        <p><%= simple_format(section.original, {}, sanitize: false) %></p>
       </div>
-      <div class="translation">
-        <p><%= simple_format(section.translation) %></p>
+      <div class="translation no-background" id="<%= section.start_line %>">
+        <p><%= simple_format(section.translation, {}, sanitize: false) %></p>
       </div>
     </div>
   <% end %>

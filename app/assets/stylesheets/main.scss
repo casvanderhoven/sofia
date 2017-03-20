@@ -206,16 +206,12 @@ $cases: (
   display: none;
 }
 
-
 .legend {
   position:fixed;
   right: 0;
-  width: 120px;
-  form.button_to {
-    margin-bottom: 0;
-    #switch {
-      width: 120px;
-    }
+  top: 50%;
+  font-size: 0.8em;
+  button#switch {
   }
   div.case-colors {
     div {

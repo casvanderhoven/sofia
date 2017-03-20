@@ -1,21 +1,19 @@
 <div class="chapter-header">
   <h1><%= link_to @chapter.work.name, author_work_path(@chapter.work.author, @chapter.work) %></h1>
   <h2><%= @chapter.name %></h2>
-  <h2>
-    <div class="legend">
-      <%= button_to "Show structure", "#", method: :get, id: "switch" %>
-      <div class="case-colors hidden">
-        <div class="nom">Nominative</div>
-        <div class="gen">Genitive</div>
-        <div class="dat">Dative</div>
-        <div class="acc">Accusative</div>
-        <div class="abl">Ablative</div>
-        <div class="adv">Adverb</div>
-        <div class="verb">Verb</div>
-        <div class="voc">Vocative</div>
-      </div>
+  <div class="legend">
+    <%= button_tag "Show structure", id: "switch" %>
+    <div class="case-colors hidden">
+      <div class="nom">Nominative</div>
+      <div class="gen">Genitive</div>
+      <div class="dat">Dative</div>
+      <div class="acc">Accusative</div>
+      <div class="abl">Ablative</div>
+      <div class="adv">Adverb</div>
+      <div class="verb">Verb</div>
+      <div class="voc">Vocative</div>
     </div>
-  </h2>
+  </div>
   <% if signed_in? %>
     <h2>
       <%= button_to "Delete chapter", author_work_chapter_path, method: :delete, data: { confirm: 'Are you sure?' } %>

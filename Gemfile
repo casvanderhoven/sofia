@@ -64,3 +64,5 @@ gem 'neat', '~> 2.0.0.beta.1'
 gem 'refills', group: [:development, :test]
 gem 'clearance'
 gem 'jquery-ui-rails'
+gem 'paperclip'
+gem 'aws-sdk'

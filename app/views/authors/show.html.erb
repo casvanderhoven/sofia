@@ -8,6 +8,7 @@
         <li><%= link_to "Add work", new_author_work_path(@author) %></li>
       </ul>
     <% end %>
+    <%= image_tag @author.bust.url(:normal) %>
   </div>
 </div>
 

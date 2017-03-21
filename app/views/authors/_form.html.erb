@@ -2,6 +2,7 @@
   <%= simple_form_for @author, html: {class: "new-form"} do |f| %>
     <%= f.input :name %>
     <%= f.input :category, collection: ["Latin", "Greek"] %>
+    <%= f.input :bust, as: :file %>
     <%= f.button :submit %>
   <% end %>
 </div>

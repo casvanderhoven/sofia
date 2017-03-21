@@ -1,9 +1,8 @@
 <header>
   <h1><%= link_to "Σοφια", root_path %></h1>
   <ul>
-    <li>
-      <p>contact me: </p>
-    </li>
+    <li><%= link_to "about", page_path('about') %></li>
+    <li>contact me: </li>
     <li><%= link_to fa_icon("twitter"), "https://www.twitter.com/casvanderhoven/" %></li>
     <li><%= link_to fa_icon("send"), "mailto:casvanderhoven@gmail.com" %></li>
     <% if signed_in? %>

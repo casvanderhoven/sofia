@@ -28,7 +28,11 @@ header {
     }
     li {
       display: inline;
+      &:first-child {
+        padding-right: 24px;
+      }
       i {
+        padding-left: 8px;
         position: relative !important;
       }
     }
@@ -228,4 +232,13 @@ $cases: (
   width: 100px;
   text-align: center;
   color: $black;
+}
+
+// about page
+section.about-text {
+  @include grid-column(8);
+  margin-top: 60px;
+  a {
+    color: #c8615b;
+  }
 }

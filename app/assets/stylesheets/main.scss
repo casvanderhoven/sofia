@@ -214,6 +214,9 @@ $cases: (
   top: 50%;
   font-size: 0.8em;
   button#switch {
+    width: 120px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
   }
   div.case-colors {
     div {

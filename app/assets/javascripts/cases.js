@@ -8,10 +8,11 @@ $.fn.extend({
 });
 $(document).ready(function() {
   $('#switch').on('click', function(){
-    if ($(this).attr('value') == 'Show structure') {
-      $(this).attr('value', 'Hide structure')
+    if ($(this).text() == 'Show structure') {
+      $(this).text('Hide structure');
     } else {
-      $(this).attr('value', 'Show structure')};
+      $(this).text('Show structure');
+    };
     $('.original, .translation').toggleClass( "no-background");
     $('.case-colors').toggleClass("hidden");
   });

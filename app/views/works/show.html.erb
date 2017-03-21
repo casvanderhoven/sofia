@@ -8,6 +8,7 @@
         <li><%= link_to "Add chapter", new_author_work_chapter_path(@work.author, @work) %></li>
       </ul>
     <% end %>
+    <%= image_tag @work.author.bust.url(:normal) %>
   </div>
 </div>
 

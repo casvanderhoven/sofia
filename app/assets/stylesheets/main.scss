@@ -163,10 +163,10 @@ div.section {
     @include grid-column(6);
     line-height: 2;
     position: relative;
-    padding-left: 25px;
+    padding-left: 15px;
     span.line {
       position: absolute;
-      left: 0;
+      left: -15px;
       font-weight: 700;
     }
   }

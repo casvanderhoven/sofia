@@ -24,7 +24,7 @@ $(document).ready(function() {
   }, function() {
     var classes = $(this).attr("class").split(' ');
     var className = "." + classes[0] + "." + classes[1];
-    $(className).css( {borderBottom: "none" } );
+    $(className).css( {borderBottom: "1px solid #fff" } );
   });
   $(".original").each(function() {
     $(this).fitTextInDiv();

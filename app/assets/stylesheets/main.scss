@@ -172,6 +172,10 @@ div.section {
       width: 32px;
       float: right;
     }
+    span {
+      border-color: white;
+      transition: border-color 0.4s ease-in;
+    }
   }
 }
 
@@ -206,12 +210,13 @@ $cases: (
 @each $case, $color in $cases {
   .#{$case} {
     background-color: rgba($color, 0.8);
+    transition: background-color 1s linear;
   }
 }
 
 .no-background {
   span {
-    background-color: transparent !important;
+    background-color: #fff !important;
   }
 }
 

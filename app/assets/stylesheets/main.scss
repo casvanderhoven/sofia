@@ -162,6 +162,13 @@ div.section {
   div.original, div.translation {
     @include grid-column(6);
     line-height: 2;
+    position: relative;
+    padding-left: 15px;
+    span.line {
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+    }
   }
 }
 

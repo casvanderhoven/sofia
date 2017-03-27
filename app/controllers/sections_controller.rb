@@ -3,11 +3,11 @@ class SectionsController < ApplicationController
 
   def new
     @section = Section.new
-    @chapter = Chapter.find(params[:chapter_id])
+    @chapter = Chapter.friendly.find(params[:chapter_id])
   end
 
   def create
-    @chapter = Chapter.find(params[:chapter_id])
+    @chapter = Chapter.friendly.find(params[:chapter_id])
     @section = Section.new(section_params)
 
     if @section.save
@@ -19,12 +19,12 @@ class SectionsController < ApplicationController
 
   def edit
     @section = Section.find(params[:id])
-    @chapter = Chapter.find(params[:chapter_id])
+    @chapter = Chapter.friendly.find(params[:chapter_id])
   end
 
   def update
     @section = Section.find(params[:id])
-    @chapter = Chapter.find(params[:chapter_id])
+    @chapter = Chapter.friendly.find(params[:chapter_id])
 
     if @section.update(section_params)
       redirect_to author_work_chapter_path(@chapter.work.author, @chapter.work, @chapter)
@@ -34,11 +34,11 @@ class SectionsController < ApplicationController
   end
 
   def destroy
-    @chapter = Chapter.find(params[:chapter_id])
+    @chapter = Chapter.friendly.find(params[:chapter_id])
     @section = Section.find(params[:id])
     @section.destroy
 
-    redirect_to @chapter
+    redirect_to root_path
   end
 
   private

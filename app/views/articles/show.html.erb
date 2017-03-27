@@ -1,0 +1,17 @@
+<div class="banner">
+  <div class="center">
+    <h1><%= @article.title %></h1>
+    <% if signed_in? %>
+      <ul>
+        <li><%= link_to "Edit article", edit_author_work_article_path(@article.work.author, @article.work, @article) %></li>
+        <li><%= link_to "Delete article", author_work_article_path(@author), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+    <% end %>
+    <%= image_tag @article.work.author.bust.url(:normal) %>
+  </div>
+</div>
+<div class="wrapper">
+  <section class="text">
+    <%= markdown @article.content %>
+  </section>
+</div>

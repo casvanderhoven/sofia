@@ -1,0 +1,23 @@
+<div class="banner">
+  <div class="center">
+    <h1>All articles</h1>
+    <%= image_tag "plato.png" %>
+  </div>
+</div>
+
+<div class="wrapper">
+  <section class="text">
+  <% @works.group_by(&:author).each do |author, works| %>
+    <h1><%= author.name %></h1>
+    <% works.each do |work| %>
+      <h2><%= link_to work.name, author_work_path(author, work) %></h2>
+      <ul>
+      <% work.articles.each do |article| %>
+        <li><%= link_to article.title, author_work_article_path(author, work, article) %></li>
+      <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+  </section>
+</div>
+

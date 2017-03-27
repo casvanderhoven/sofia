@@ -6,6 +6,7 @@
         <li><%= link_to "Edit work", edit_author_work_path %></li>
         <li><%= link_to "Delete work", author_work_path, method: :delete, data: { confirm: 'Are you sure?' } %></li>
         <li><%= link_to "Add chapter", new_author_work_chapter_path(@work.author, @work) %></li>
+        <li><%= link_to "Add article", new_author_work_article_path(@work.author, @work) %></li>
       </ul>
     <% end %>
     <%= image_tag @work.author.bust.url(:normal) %>

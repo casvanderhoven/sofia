@@ -43,7 +43,6 @@ group :development, :staging do
 end
 
 group :test do
-  gem "capybara-webkit"
   gem "database_cleaner"
   gem "formulaic"
   gem "launchy"
@@ -64,5 +63,6 @@ gem 'neat', '~> 2.0.0.beta.1'
 gem 'refills', group: [:development, :test]
 gem 'clearance'
 gem 'jquery-ui-rails'
+gem 'redcarpet'
 gem 'paperclip'
 gem 'aws-sdk'

@@ -256,10 +256,10 @@ $cases: (
 }
 
 // about page
-section.about-text {
+section.text {
   @include grid-column(8);
   margin-top: 60px;
-  a {
+  p.a {
     color: #c8615b;
   }
 }

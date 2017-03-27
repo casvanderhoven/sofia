@@ -1,0 +1,8 @@
+<div class="wrapper">
+  <%= simple_form_for [@author, @work, @article], html: {class: "new-form"} do |f| %>
+    <%= f.hidden_field :work_id, value: @work.id %>
+    <%= f.input :title %>
+    <%= f.input :content %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

@@ -1,4 +1,9 @@
 FactoryGirl.define do
+  factory :article do
+    title "MyString"
+    content "MyText"
+    work nil
+  end
   factory :section do
     name "MyString"
     start_line 1

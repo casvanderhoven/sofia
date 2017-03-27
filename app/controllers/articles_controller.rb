@@ -11,14 +11,10 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @author = Author.find(params[:author_id])
-    @work = Work.find(params[:work_id])
     @article = Article.new
   end
 
   def create
-    @author = Author.find(params[:author_id])
-    @work = Work.find(params[:work_id])
     @article = Article.new article_params
 
     if @article.save
@@ -54,11 +50,11 @@ class ArticlesController < ApplicationController
   end
 
   def find_article
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
   end
 
   def find_parents
-    @author = Author.find(params[:author_id])
-    @work = Work.find(params[:work_id])
+    @author = Author.friendly.find(params[:author_id])
+    @work = Work.friendly.find(params[:work_id])
   end
 end

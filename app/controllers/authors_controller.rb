@@ -6,7 +6,7 @@ class AuthorsController < ApplicationController
   end
 
   def show
-    @author = Author.find(params[:id])
+    @author = Author.friendly.find(params[:id])
     @works = @author.works.all
   end
 
@@ -25,11 +25,11 @@ class AuthorsController < ApplicationController
   end
 
   def edit
-    @author = Author.find(params[:id])
+    @author = Author.friendly.find(params[:id])
   end
 
   def update
-    @author = Author.find(params[:id])
+    @author = Author.friendly.find(params[:id])
 
     if @author.update(author_params)
       redirect_to @author
@@ -39,7 +39,7 @@ class AuthorsController < ApplicationController
   end
 
   def destroy
-    @author = Author.find(params[:id])
+    @author = Author.friendly.find(params[:id])
     @author.destroy
 
     redirect_to authors_path

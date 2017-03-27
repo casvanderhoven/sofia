@@ -2,16 +2,16 @@ class WorksController < ApplicationController
   before_action :require_login, except: [:show]
 
   def show
-    @work = Work.find(params[:id])
+    @work = Work.friendly.find(params[:id])
   end
 
   def new
-    @author = Author.find(params[:author_id])
+    @author = Author.friendly.find(params[:author_id])
     @work = Work.new
   end
 
   def create
-    @author = Author.find(params[:author_id] )
+    @author = Author.friendly.find(params[:author_id] )
     @work = Work.new(work_params)
 
     if @work.save
@@ -22,13 +22,13 @@ class WorksController < ApplicationController
   end
 
   def edit
-    @author = Author.find(params[:author_id])
-    @work = Work.find(params[:id])
+    @author = Author.friendly.find(params[:author_id])
+    @work = Work.friendly.find(params[:id])
   end
 
   def update
-    @author = Author.find(params[:author_id])
-    @work = Work.find(params[:id])
+    @author = Author.friendly.find(params[:author_id])
+    @work = Work.friendly.find(params[:id])
 
     if @work.update(work_params)
       redirect_to author_work_path(@author, @work)
@@ -38,8 +38,8 @@ class WorksController < ApplicationController
   end
 
   def destroy
-    @author = Author.find(params[:author_id])
-    @work = Work.find(params[:id])
+    @author = Author.friendly.find(params[:author_id])
+    @work = Work.friendly.find(params[:id])
     @work.destroy
 
     redirect_to @author

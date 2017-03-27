@@ -2,18 +2,18 @@ class ChaptersController < ApplicationController
   before_action :require_login, except: [:show]
 
   def show
-    @chapter = Chapter.find(params[:id])
+    @chapter = Chapter.friendly.find(params[:id])
   end
 
   def new
-    @author = Author.find(params[:author_id])
-    @work = Work.find(params[:work_id])
+    @author = Author.friendly.find(params[:author_id])
+    @work = Work.friendly.find(params[:work_id])
     @chapter = Chapter.new
   end
 
   def create
-    @author = Author.find(params[:author_id])
-    @work = Work.find(params[:work_id])
+    @author = Author.friendly.find(params[:author_id])
+    @work = Work.friendly.find(params[:work_id])
     @chapter = Chapter.new(chapter_params)
 
     if @chapter.save
@@ -24,13 +24,13 @@ class ChaptersController < ApplicationController
   end
 
   def edit
-    @chapter = Chapter.find(params[:id])
+    @chapter = Chapter.friendly.find(params[:id])
   end
 
   def update
-    @author = Author.find(params[:author_id])
-    @work = Work.find(params[:work_id])
-    @chapter = Chapter.find(params[:id])
+    @author = Author.friendly.find(params[:author_id])
+    @work = Work.friendly.find(params[:work_id])
+    @chapter = Chapter.friendly.find(params[:id])
 
     if @chapter.update(chapter_params)
       redirect_to author_work_chapter_path(@work.author, @work, @chapter)
@@ -40,8 +40,8 @@ class ChaptersController < ApplicationController
   end
   
   def destroy
-    @work = Work.find(params[:work_id])
-    @chapter = Chapter.find(params[:id])
+    @work = Work.friendly.find(params[:work_id])
+    @chapter = Chapter.friendly.find(params[:id])
     @chapter.destroy
 
     redirect_to author_work_path(@work.author, @work)

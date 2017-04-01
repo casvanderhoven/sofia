@@ -20,11 +20,19 @@ $(document).ready(function() {
   $("span").hover( function() {
     var classes = $(this).attr("class").split(' ');
     var className = "." + classes[0] + "." + classes[1];
+    if ($(this).parents("div.section").find(".original, .translation").hasClass("no-background")) {
     $(this).parents("div.section").find($(className)).css( {borderBottom: "1px solid #000" } );
+    } else {
+      $(this).parents("div.section").find($(className)).css( {borderBottom: "3px solid #000" } );
+    };
   }, function() {
     var classes = $(this).attr("class").split(' ');
     var className = "." + classes[0] + "." + classes[1];
+    if ($(this).parents("div.section").find(".original, .translation").hasClass("no-background")) {
     $(className).css( {borderBottom: "1px solid #fff" } );
+    } else {
+    $(className).css( {borderBottom: "3px solid #fff" } );
+    };
   });
   $(".original").each(function() {
     $(this).fitTextInDiv();

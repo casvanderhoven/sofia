@@ -36,7 +36,7 @@
   </div>
 </div>
 <div class="wrapper">
-  <% @chapter.sections.each do |section| %>
+  <% ordered_sections.each do |section| %>
     <div id="line-<%=section.start_line %>" class="section">
       <div class="title">
         <h1><%= section.start_line.to_s.rjust(2, '0')%>-<%=section.end_line.to_s.rjust(2, '0') %></h1>

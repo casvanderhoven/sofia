@@ -26,7 +26,7 @@
   <div class="center">
     <ul>
       <% ordered_sections = @chapter.sections.sort { |a,b| a.start_line <=> b.start_line } %>
-      <% ordered.sections.each do |section| %>
+      <% ordered_sections.each do |section| %>
         <li><%= link_to("#line-" + section.start_line.to_s) do %>
           <%= section.start_line.to_s.rjust(2, '0') %>-<%= section.end_line.to_s.rjust(2, '0') %>
         <% end %>
